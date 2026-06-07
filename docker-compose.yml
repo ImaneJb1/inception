@@ -7,4 +7,4 @@ services:
       - "80:80"
   php:
     build: requirements/wordpress/.
-    container_name: php
+    container_name: wp-php
