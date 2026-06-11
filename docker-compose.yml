@@ -16,6 +16,9 @@ services:
       - ./web:/var/www/html
     networks:
       - my-network
+  mariadb:
+    build: requirements/mariadb/.
+    container_name: wp_data_base
 
 networks:
   my-network:
