@@ -1,24 +1,17 @@
 
 services:
   nginx:
-    build: requirements/nginx/.
+    build: srcs/requirements/nginx/.
     container_name: nginx
     ports:
       - "80:80"
     volumes:
       - ./web:/var/www/html
-    networks:
-      - my-network
   wordpress:
-    build: requirements/wordpress/.
+    build: srcs/requirements/wordpress/.
     container_name: wp-php
     volumes:
       - ./web:/var/www/html
-    networks:
-      - my-network
   mariadb:
-    build: requirements/mariadb/.
-    container_name: wp_data_base
-
-networks:
-  my-network:
+    build: srcs/requirements/mariadb/.
+    container_name: mariadb

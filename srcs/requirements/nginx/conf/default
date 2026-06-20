@@ -1,19 +1,28 @@
 server {
-    listen 80 default_server;
-    server_name _;
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    
+    server_name ijoubair.42.fr;
+
+    ssl_certificate /etc/nginx/ssl/inception.crt;
+    ssl_certificate_key /etc/nginx/ssl/inception.crt;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
 
     root /var/www/html;
-    index index.html index.php ;
+    index index.html index.php index.htm ;
 
     location / {
-        try_files $uri $uri/ /index.php?$query_string;
+        try_files $uri $uri/ /index.php$is_args$args;
     }
 
+    # Pass PHP requests over to the WordPress container via FastCGI
     location ~ \.php$ {
         include fastcgi_params;
-
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass wordpress:9000;
+        fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-
-        fastcgi_pass wp-php:9000;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
     }
 }
