@@ -5,7 +5,7 @@ server {
     server_name ijoubair.42.fr;
 
     ssl_certificate /etc/nginx/ssl/inception.crt;
-    ssl_certificate_key /etc/nginx/ssl/inception.crt;
+    ssl_certificate_key /etc/nginx/ssl/inception.key;
 
     ssl_protocols TLSv1.2 TLSv1.3;
 
