@@ -1,7 +1,6 @@
 FROM debian:bookworm-slim
 
-RUN apt-get update && apt-get install -y \ 
-    php8.4-fpm \
+RUN apt-get update && apt-get install -y   php-fpm \
     php-mysql \
     curl \
     && rm -rf /var/lib/apt/lists/*
