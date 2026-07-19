@@ -2,7 +2,7 @@ NAME = inception
 
 COMPOSE = docker compose -f srcs/docker-compose.yml
 
-DATA_DIR = /home/ijoubair/data
+DATA_DIR = /home/$(USER)/data
 
 all: up
 
@@ -18,7 +18,7 @@ clean:
 	$(COMPOSE) down --remove-orphans
 
 fclean:
-	$(COMPOSE) down -v --rmi all --remove-orphans
+	$(COMPOSE) down -v --rmi all --remove-orphans && sudo rm -rf $(DATA_DIR)/mariadb $(DATA_DIR)/wordpress
 
 re: fclean up
 

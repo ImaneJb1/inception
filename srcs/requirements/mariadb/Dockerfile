@@ -4,5 +4,9 @@ RUN apt-get update && apt-get upgrade && apt-get install -y mariadb-server
 
 COPY ./conf/50-server.cnf  /etc/mysql/mariadb.conf.d/
 
-CMD ["mariadbd-safe"]
+COPY ./tools/mdb-script.sh /usr/local/bin/mdb-script.sh
+
+RUN chmod u+x /usr/local/bin/mdb-script.sh
+
+ENTRYPOINT ["/usr/local/bin/mdb-script.sh"]
 
