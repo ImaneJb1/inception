@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inception | Docker & DevOps</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #0f172a);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #dbeafe;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 0;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #60a5fa;
+            font-size: 2rem;
+        }
+
+        #about p,
+        #docker p,
+        #devops p {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        article {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 14px;
+            transition: .3s;
+            border: 1px solid #334155;
+        }
+
+        article:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,.35);
+            border-color: #3b82f6;
+        }
+
+        article h3 {
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        article p {
+            color: #cbd5e1;
+        }
+
+        footer {
+            background: #020617;
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+            border-top: 1px solid #1e293b;
+        }
+
+        @media (max-width:768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h1>🚀 Inception</h1>
+    <p>Building a secure web infrastructure with Docker & DevOps.</p>
+</header>
+
+<main>
+
+    <section id="about">
+        <h2>About the Project</h2>
+        <p>
+            Inception is a system administration and DevOps project from the
+            42 curriculum. The objective is to design a secure and scalable web
+            infrastructure using Docker containers while learning networking,
+            virtualization, and service orchestration.
+        </p>
+    </section>
+
+    <section id="services">
+        <h2>Infrastructure Services</h2>
+
+        <div class="cards">
+
+            <article>
+                <h3>🌐 NGINX</h3>
+                <p>
+                    Serves as the entry point of the infrastructure, handling
+                    HTTPS traffic with TLS encryption and forwarding requests
+                    securely.
+                </p>
+            </article>
+
+            <article>
+                <h3>🐘 WordPress + PHP-FPM</h3>
+                <p>
+                    Runs the WordPress application while PHP-FPM efficiently
+                    processes dynamic PHP requests.
+                </p>
+            </article>
+
+            <article>
+                <h3>🗄️ MariaDB</h3>
+                <p>
+                    Stores all website data including users, posts, settings,
+                    and application content.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="docker">
+        <h2>🐳 Docker</h2>
+        <p>
+            Docker packages applications with all their dependencies into
+            lightweight containers, making deployments consistent,
+            portable, and reproducible across environments.
+        </p>
+    </section>
+
+    <section id="devops">
+        <h2>⚙️ DevOps</h2>
+        <p>
+            DevOps combines software development and IT operations to automate
+            deployment, improve collaboration, increase reliability, and enable
+            faster software delivery.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 • Inception Project • 42 School</p>
+</footer>
+
+</body>
+</html>
