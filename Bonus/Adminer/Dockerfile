@@ -8,7 +8,11 @@ RUN apt-get update && apt-get install -y \
 
 RUN mkdir -p var/www/adminer
 
-RUN RUN wget https://github.com/vrana/adminer/releases/latest/download/adminer.php \
+RUN  wget https://www.adminer.org/latest.php \
     -O /var/www/adminer/index.php
 COPY tools/start.sh /start.sh
+RUN  chmod u+x /start.sh
+EXPOSE 8080
+
+ENTRYPOINT ["/start.sh"]
 
