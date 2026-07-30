@@ -44,3 +44,4 @@ mkdir -p /run/php
 
 # Start PHP-FPM in the foreground so it remains active as PID 1
 exec php-fpm8.2 -F
+echo "Done";
