@@ -117,4 +117,9 @@ services:
       - wordpress_data:/var/www/html
     secrets:
       - ftp_user_password
-  
+  redis:
+    build: ../Bonus/Redis
+    container_name: redis
+    restart: always
+    networks:
+      - inception_network

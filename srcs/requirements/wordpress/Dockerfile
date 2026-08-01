@@ -2,7 +2,9 @@ FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y   php-fpm \
     php-mysql \
+    mariadb-client \
     curl \
+    php-redis \
     && rm -rf /var/lib/apt/lists/*
 
 RUN  curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
