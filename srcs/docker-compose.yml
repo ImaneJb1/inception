@@ -34,7 +34,7 @@ services:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
     container_name: mariadb
-    restart: always
+    restart: unless-stopped
     networks:
       - inception_network
     volumes:
@@ -51,7 +51,7 @@ services:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
     container_name: wordpress
-    restart: always
+    restart: unless-stopped
     depends_on:
       - mariadb
     networks:
@@ -79,7 +79,7 @@ services:
       context: ./requirements/nginx
       dockerfile: Dockerfile
     container_name: nginx
-    restart: always
+    restart: unless-stopped
     depends_on:
       - wordpress
     ports:
@@ -94,14 +94,14 @@ services:
       context: ../Bonus/website/
       dockerfile: Dockerfile
     container_name: website
-    restart: always
+    restart: unless-stopped
     ports:
       - "1233:1233"
   adminer:
     build:
       context: ../Bonus/Adminer
     container_name: adminer
-    restart: always
+    restart: unless-stopped
     depends_on:
       - mariadb
     networks:
@@ -109,7 +109,7 @@ services:
   ftp:
     build: ../Bonus/FTP_server
     container_name: ftp_server
-    restart: always
+    restart: unless-stopped
     ports:
       - "2221:21"
       - "30000-30010:30000-30010"
@@ -120,6 +120,6 @@ services:
   redis:
     build: ../Bonus/Redis
     container_name: redis
-    restart: always
+    restart: unless-stopped
     networks:
       - inception_network
