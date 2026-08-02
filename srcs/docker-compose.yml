@@ -90,7 +90,7 @@ services:
       - wordpress_data:/var/www/html
   adminer:
     build:
-      context: ../Bonus/Adminer
+      context: requirements/Bonus/Adminer
     container_name: adminer
     restart: unless-stopped
     depends_on:
@@ -98,7 +98,7 @@ services:
     networks:
       - inception_network
   ftp:
-    build: ../Bonus/FTP_server
+    build: requirements/Bonus/FTP_server
     container_name: ftp_server
     restart: unless-stopped
     ports:
@@ -109,7 +109,7 @@ services:
     secrets:
       - ftp_user_password
   redis:
-    build: ../Bonus/Redis
+    build: requirements/Bonus/Redis
     container_name: redis
     restart: unless-stopped
     networks:
