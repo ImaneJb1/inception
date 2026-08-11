@@ -83,7 +83,7 @@ services:
     depends_on:
       - wordpress
     ports:
-      - "443:443"
+      - "4430:443"
     networks:
       - inception_network
     volumes:
@@ -102,7 +102,7 @@ services:
     container_name: ftp_server
     restart: unless-stopped
     ports:
-      - "21:21"
+      - "2121:21"
       - "30000-30010:30000-30010"
     volumes:
       - wordpress_data:/var/www/html
@@ -124,7 +124,5 @@ services:
     build: ./requirements/Bonus/netdata
     container_name: netdata
     restart: unless-stopped
-    ports:
-        - "19999:19999"
     networks:
         - inception_network

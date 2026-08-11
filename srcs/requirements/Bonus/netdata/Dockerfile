@@ -6,6 +6,10 @@ RUN apt-get update && \
         ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
+COPY ./conf/netdata.conf /etc/netdata/netdata.conf
+
+COPY ./tools/setup.sh /
+RUN chmod u+x setup.sh
 EXPOSE 19999
 
-CMD ["netdata", "-D", "-s", "/host", "-p", "19999"]
+CMD ["./setup.sh"]
