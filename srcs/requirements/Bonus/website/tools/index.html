@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42 Inception — Concepts</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f1115;
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 70px 20px;
+            text-align: center;
+            background: #151922;
+            border-bottom: 1px solid #292e38;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #9da4b0;
+            font-size: 18px;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: 50px auto;
+        }
+
+        .architecture {
+            background: #151922;
+            border: 1px solid #292e38;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .architecture h2 {
+            margin-bottom: 25px;
+        }
+
+        .flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            padding: 15px 20px;
+            border: 1px solid #3b4250;
+            border-radius: 8px;
+            background: #1c212c;
+            font-weight: bold;
+        }
+
+        .arrow {
+            color: #777f8c;
+            font-size: 24px;
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        .concepts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #151922;
+            border: 1px solid #292e38;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #596273;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #aeb5c0;
+            font-size: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 4px 9px;
+            border-radius: 5px;
+            background: #252b36;
+            color: #b9c0cc;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .docker-compose {
+            margin-top: 50px;
+            background: #151922;
+            border: 1px solid #292e38;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        pre {
+            margin-top: 20px;
+            padding: 20px;
+            overflow-x: auto;
+            background: #0b0d11;
+            border-radius: 8px;
+            color: #c8ced8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            color: #707784;
+            border-top: 1px solid #292e38;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>42 Inception</h1>
+    <p>Understanding containerized infrastructure</p>
+</header>
+
+<main class="container">
+
+    <section class="architecture">
+        <h2>Architecture</h2>
+
+        <div class="flow">
+            <div class="box">Browser</div>
+            <div class="arrow">→</div>
+
+            <div class="box">NGINX</div>
+            <div class="arrow">→</div>
+
+            <div class="box">WordPress</div>
+            <div class="arrow">→</div>
+
+            <div class="box">MariaDB</div>
+        </div>
+    </section>
+
+
+    <section>
+        <h2 class="section-title">Core Concepts</h2>
+
+        <div class="concepts">
+
+            <article class="card">
+                <span class="tag">Containerization</span>
+                <h3>Docker</h3>
+                <p>
+                    Docker packages an application and its dependencies
+                    into an isolated container that can run consistently
+                    across environments.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Orchestration</span>
+                <h3>Docker Compose</h3>
+                <p>
+                    Compose defines multiple services, networks, volumes
+                    and their configuration in one YAML file.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Web Server</span>
+                <h3>NGINX</h3>
+                <p>
+                    NGINX receives HTTP/HTTPS requests and acts as the
+                    entry point to the infrastructure.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Security</span>
+                <h3>TLS</h3>
+                <p>
+                    TLS encrypts communication between the browser and
+                    the server, protecting data transmitted over HTTPS.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">CMS</span>
+                <h3>WordPress</h3>
+                <p>
+                    WordPress is the application running inside its own
+                    container and generates the website content.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">PHP</span>
+                <h3>PHP-FPM</h3>
+                <p>
+                    PHP-FPM executes PHP scripts for WordPress. NGINX
+                    communicates with it through FastCGI.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Database</span>
+                <h3>MariaDB</h3>
+                <p>
+                    MariaDB stores WordPress data such as users,
+                    posts, settings and metadata.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Persistence</span>
+                <h3>Volumes</h3>
+                <p>
+                    Docker volumes keep important data persistent even
+                    when containers are stopped or recreated.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Networking</span>
+                <h3>Docker Network</h3>
+                <p>
+                    Containers communicate with each other through an
+                    isolated Docker network using service names as DNS.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Configuration</span>
+                <h3>Environment Variables</h3>
+                <p>
+                    Environment variables allow configuration values such
+                    as database names and usernames to be passed to containers.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Security</span>
+                <h3>Secrets</h3>
+                <p>
+                    Sensitive credentials such as database passwords can
+                    be stored separately from the application configuration.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="tag">Images</span>
+                <h3>Dockerfile</h3>
+                <p>
+                    A Dockerfile describes how a container image is built,
+                    including the base image, packages and configuration.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <section class="docker-compose">
+
+        <h2 class="section-title">The Big Picture</h2>
+
+        <p>
+            The Inception infrastructure is composed of several
+            independent containers that work together.
+        </p>
+
+        <pre>
+Browser
+   │
+   │ HTTPS
+   ▼
+┌───────────────┐
+│     NGINX     │
+│   TLS / HTTP  │
+└───────┬───────┘
+        │ FastCGI
+        ▼
+┌───────────────┐
+│   WordPress   │
+│   PHP-FPM     │
+└───────┬───────┘
+        │
+        │ MySQL protocol
+        ▼
+┌───────────────┐
+│    MariaDB    │
+│   Database    │
+└───────────────┘
+        </pre>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>42 Inception · Docker · NGINX · WordPress · MariaDB</p>
+</footer>
+
+</body>
+</html>

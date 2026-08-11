@@ -30,4 +30,15 @@ server {
         proxy_pass http://adminer:8080;
     }
 
+    location /static_website {
+        proxy_pass http://static_website:8080/;
+    }
+
+}
+
+server {
+    listen 19999 ssl;
+    location /{
+        proxy_pass http://netdata:1999/;
+    }
 }

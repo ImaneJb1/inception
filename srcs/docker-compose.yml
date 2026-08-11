@@ -114,3 +114,17 @@ services:
     restart: unless-stopped
     networks:
       - inception_network
+  static_website:
+    build: requirements/Bonus/website/.
+    container_name: static_website
+    restart: unless-stopped
+    networks:
+      - inception_network
+  netdata:
+    build: ./requirements/Bonus/netdata
+    container_name: netdata
+    restart: unless-stopped
+    ports:
+        - "19999:19999"
+    networks:
+        - inception_network
