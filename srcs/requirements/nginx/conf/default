@@ -39,6 +39,6 @@ server {
 server {
     listen 19999 ssl;
     location /{
-        proxy_pass http://netdata:1999/;
+        proxy_pass http://netdata:19999/;
     }
 }
