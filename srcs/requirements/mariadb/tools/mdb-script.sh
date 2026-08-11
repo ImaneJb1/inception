@@ -32,4 +32,4 @@ EOF
 mysqladmin -u root -p"${ROOT_PASSWORD}" shutdown
 wait $pid
 
-exec mariadbd-safe --user=mysql
+exec mariadbd --user=mysql
