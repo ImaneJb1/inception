@@ -124,5 +124,14 @@ services:
     build: ./requirements/Bonus/netdata
     container_name: netdata
     restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    pid: host
+    cap_add:
+      - SYS_ADMIN
+      - SYS_PTRACE
+
     networks:
-        - inception_network
+      - inception_network
