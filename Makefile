@@ -33,3 +33,6 @@ wp:
 
 db:
 	docker exec -it mariadb bash
+
+ng:
+	docker exec -it nginx bash
